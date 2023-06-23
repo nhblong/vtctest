@@ -1,5 +1,12 @@
 def fibonacci(n):
-    fib_sequence = [0, 1]
-    while len(fib_sequence) < n:
-        fib_sequence.append(fib_sequence[-1] + fib_sequence[-2])
-    return fib_sequence
+    if n <= 0:
+        return "Input should be positive"
+    elif n == 1:
+        return 0
+    elif n == 2:
+        return 1
+    else:
+        fib = [0, 1] + [0]*(n-2)
+        for i in range(2, n):
+            fib[i] = fib[i-1] + fib[i-2]
+        return fib[-1]
